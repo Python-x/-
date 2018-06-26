@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写</title>
+    {% load static from staticfiles %}
+    <style type="text/css">
+        body{
+            background-image: url("{% static 'img/2.jpg' %}");
+        }
+        .pp{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="{% url 'blog:edgHan' %}">
+    {% csrf_token %}
+    标题<input type="text" name="title" class="pp"><br>
+    内容<textarea name="content" id="" cols="30" rows="10"style="height: 300px;width: 800px" class="pp"></textarea>
+    <input type="submit" value="提交">
+
+</form>
+</body>
+</html>

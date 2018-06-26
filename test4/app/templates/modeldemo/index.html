@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.2.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $('#pro').change(function () {
+            $.post('/get2/',{'id':$(this).val()},function (dic) {
+                city = $('#city');
+                alert(dic.data)
+                city.append('<option value='+ dic.data.id+'>'+dic.data.title+'</option>')
+{#                city.empty().append('<option value="">请选择市</option>');#}
+{#                $.each(dic.data,function (index,item) {#}
+{#                    city.append('<option value='+item.id+'>'+item.title+'</option>');#}
+{#                })#}
+            })
+        })
+        $('#city').change(function () {
+            $.post($(this).val()+'/',function (dic) {
+                dis = $('#dis');
+                dis.empty().append('<option value="">请选择区县</option>');
+                $.each(dic.data,function (index,item) {
+                    dis.append('option value='+item.id+'>'+item.title+'</option>')
+                })
+            })
+        })
+    })
+</script>
+</head>
+<body>
+<select id="pro">
+    {% for foo in data %}
+        <option value="{{ foo.aid }}">{{ foo.atitle }}</option>
+    {% endfor %}
+
+</select>
+<select id="city">
+    <option value="">请选择市</option>
+</select>
+<select id="dis">
+    <option value="">请选择区县</option>
+</select>
+
+</body>
+</html>

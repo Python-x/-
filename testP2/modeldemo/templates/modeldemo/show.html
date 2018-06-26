@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for foo in list %}
+{#            {{ foo.pk }}#}
+            <li><a href = {% url 'model1:test3' %}>{{ foo.cname }}</a></li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>

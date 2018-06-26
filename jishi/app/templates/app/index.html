@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>这是主页</h2>
+<a href="{% url 'jishi:register' %}">去注册</a>
+<a href="{% url 'jishi:login' %}">去登录</a>
+<a href="{% url 'jishi:liuyan' %}">去留言</a>
+<br>
+<br>
+这里是留言↓ <br>
+{% for foo in p %}
+    <a href="{% url 'jishi:xiangq' foo.id %}">{{ foo.name }}的留言</a> <br>
+{% endfor %}
+
+</body>
+</html>

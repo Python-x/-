@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static from staticfiles %}
+    <style type="text/css">
+        body{
+            background-image: url({% static 'img/3.jpg' %});
+        }
+        .div1{
+            width: 1335px;
+            height: 500px;
+        }
+        .p1{
+            font-size: 20px;
+{#            text-align: center;#}
+            margin: 50px 100px 0px 100px;
+        }
+        .xg{
+            color: black;
+            width: 100px;
+            height: 50px;
+            text-decoration: none;
+            display: block;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: pink;
+            opacity: 0.6;
+        }
+        .a1{
+            margin-left: 1000px;
+        }
+        .a2{
+            margin-left: 1000px;
+        }
+
+    </style>
+</head>
+<body>
+{#<img src="{% static 'img/2.jpg'%}" alt="">#}
+<div class="div1">
+    <p class="p1"> 标题: {{ art.title }}</p>
+    <a href="{% url 'blog:revise' art.id %}"class="xg a1">修改</a>
+    <br>
+    <p class="p1">内容: {{ art.content }}</p>
+    <p class="p1">修改时间: {{ art.pub_datetime }}</p>
+    <a href="{% url 'blog:delete' art.id %}"class="xg a2">删除</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static from staticfiles %}
+    <style type="text/css">
+        body{
+            background-image: url({% static 'img/2.jpg' %});
+        }
+        ul{
+            list-style: none;
+        }
+        .a1{
+            text-decoration: none;
+            color: black;
+            font-size: 19px;
+            font-weight: bold;
+        }
+        .hh{
+            display: block;
+            margin-left: 40px;
+
+        }
+        .a2{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 class="hh">这是博客</h1>
+    <h4 class="hh"><a href="{% url 'blog:edg' %}" class="a2">编辑博客</a></h4>
+    <ul>
+        {% for foo in list %}
+            <li><a href="{% url 'blog:det' foo.id %}" class="a1">{{ foo.title }}</a></li>
+        {% endfor %}
+
+    </ul>
+</div>
+
+</body>
+</html>
